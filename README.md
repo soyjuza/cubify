@@ -4,6 +4,8 @@ Página que convierte una imagen en cubos y los anima. Tiene 4 efectos: remolino
 
 Se puede descargar el resultado como imagen PNG o como video.
 
+Pruébala aquí: https://cubify-azure.vercel.app
+
 ## Cómo usarla
 
 1. Subir una imagen o elegir uno de los ejemplos.
