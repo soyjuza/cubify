@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagen en cubos</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <header>
+        <h1>Imagen en cubos</h1>
+        <p>Sube una imagen y mira cómo se convierte en cubos.</p>
+    </header>
+
+    <main>
+
+        <section class="panel">
+
+            <h2>1. Elige una imagen</h2>
+
+            <label class="boton-subir">
+                Subir imagen
+                <input type="file" id="archivo" accept="image/png, image/jpeg, image/webp">
+            </label>
+            <p class="nota">También puedes arrastrarla al recuadro.</p>
+
+            <label for="ejemplo">O usa un ejemplo:</label>
+            <select id="ejemplo">
+                <option value="">-- Elige uno --</option>
+                <option value="ejemplos/bici-montana.webp">Bici de montaña</option>
+                <option value="ejemplos/bici-ruta.webp">Bici de ruta</option>
+                <option value="ejemplos/bici-urbana.webp">Bici urbana</option>
+            </select>
+
+            <p class="error" id="error" hidden></p>
+
+            <div class="aviso" id="aviso-fondo" hidden>
+                <strong>Tu imagen tiene fondo.</strong>
+                <p>
+                    El efecto se ve mejor con imágenes sin fondo (PNG transparente).
+                    Puedes quitárselo con herramientas como ChatGPT o Gemini: súbeles la foto
+                    y pídeles "quítale el fondo y devuélvela en PNG transparente".
+                </p>
+            </div>
+
+            <h2>2. Ajusta el efecto</h2>
+
+            <label for="efecto">Efecto</label>
+            <select id="efecto">
+                <option value="remolino">Remolino</option>
+                <option value="viento">Viento</option>
+                <option value="explosion">Explosión</option>
+                <option value="derrumbe">Derrumbe</option>
+            </select>
+
+            <label for="tamano">Tamaño del cubo: <span id="tamano-texto">6</span> px</label>
+            <input type="range" id="tamano" min="3" max="16" value="6">
+
+            <label for="duracion">Duración: <span id="duracion-texto">4</span> segundos</label>
+            <input type="range" id="duracion" min="2" max="10" value="4">
+
+            <label for="fondo">Color de fondo</label>
+            <input type="color" id="fondo" value="#ffffff">
+
+            <h2>3. Mira la animación</h2>
+
+            <button id="reproducir">Reproducir</button>
+
+            <label for="avance">Avance: <span id="avance-texto">0</span> %</label>
+            <input type="range" id="avance" min="0" max="1000" value="0">
+
+            <p class="nota">Cubos: <span id="cantidad">0</span></p>
+            <p class="nota" id="nota-tamano" hidden></p>
+
+            <h2>4. Descárgala</h2>
+
+            <button id="descargar-imagen" class="boton-claro">Descargar imagen (PNG)</button>
+            <button id="descargar-video" class="boton-claro">Descargar video</button>
+            <p class="nota" id="estado-video">El video se graba mientras se reproduce la animación.</p>
+
+        </section>
+
+        <section class="escenario" id="escenario">
+            <canvas id="lienzo"></canvas>
+            <p class="vacio" id="vacio">Aquí aparecerá tu imagen</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            Fotos de ejemplo de Wikimedia Commons:
+            bici de montaña de Matti Blume (CC BY-SA 4.0),
+            bici de ruta de Tim Reddington (CC BY-SA 4.0)
+            y bici urbana Brompton (uso libre). Les quité el fondo.
+        </p>
+    </footer>
+
+    <script src="js/imagen.js"></script>
+    <script src="js/rejilla.js"></script>
+    <script src="js/efectos.js"></script>
+    <script src="js/dibujo.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/exportar.js"></script>
+
+</body>
+</html>
